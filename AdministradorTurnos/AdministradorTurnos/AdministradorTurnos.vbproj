@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +60,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icono_doctor.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,10 +88,77 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormPrincipal.vb">
+    <Compile Include="DTO\PacienteDTO.vb" />
+    <Compile Include="DTO\UsuarioDTO.vb" />
+    <Compile Include="Logica\Consultorio.vb" />
+    <Compile Include="Logica\FichaMedica.vb" />
+    <Compile Include="Logica\Paciente.vb" />
+    <Compile Include="Logica\Turno.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\bdConfig.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>bdConfig.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\DAOExcepcion.vb" />
+    <Compile Include="Persistencia\EncriptadorCesar.vb" />
+    <Compile Include="Persistencia\SQLServerFactory.vb" />
+    <Compile Include="UI\FormAdministracionTurnos.Designer.vb">
+      <DependentUpon>FormAdministracionTurnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormAdministracionTurnos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.vb">
+    <Compile Include="UI\FormFichaMedica.Designer.vb">
+      <DependentUpon>FormFichaMedica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormFichaMedica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormAltaTurno.Designer.vb">
+      <DependentUpon>FormAltaTurno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormAltaTurno.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormBuscarPaciente.Designer.vb">
+      <DependentUpon>FormBuscarPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormBuscarPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormConfiguracion.Designer.vb">
+      <DependentUpon>FormConfiguracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormConfiguracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormHistoriaPaciente.Designer.vb">
+      <DependentUpon>FormHistoriaPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormHistoriaPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormPacientes.Designer.vb">
+      <DependentUpon>FormPacientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormPacientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormPrincipal.Designer.vb">
       <DependentUpon>FormPrincipal.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -82,29 +167,75 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UI\FormTurnos.Designer.vb">
+      <DependentUpon>FormTurnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormTurnos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormUsuarios.Designer.vb">
+      <DependentUpon>FormUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\turnosConfig.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>turnosConfig.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="UI\FormAdministracionTurnos.resx">
+      <DependentUpon>FormAdministracionTurnos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormFichaMedica.resx">
+      <DependentUpon>FormFichaMedica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormAltaTurno.resx">
+      <DependentUpon>FormAltaTurno.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormBuscarPaciente.resx">
+      <DependentUpon>FormBuscarPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormConfiguracion.resx">
+      <DependentUpon>FormConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormHistoriaPaciente.resx">
+      <DependentUpon>FormHistoriaPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormPacientes.resx">
+      <DependentUpon>FormPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormTurnos.resx">
+      <DependentUpon>FormTurnos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Persistencia\bdConfig.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>bdConfig.Designer.vb</LastGenOutput>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -115,6 +246,63 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="UI\turnosConfig.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>turnosConfig.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salir.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuracion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filesave.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icono_doctor.ico" />
+    <None Include="Resources\exit.ico" />
+    <None Include="Resources\medico.jpg" />
+    <None Include="Resources\Age-Child-Male-Dark-icon.ico" />
+    <None Include="Resources\up2.ico" />
+    <None Include="Resources\filenew.ico" />
+    <None Include="Resources\Cliente.ico" />
+    <None Include="Resources\historiaMedica1.ico" />
+    <None Include="Resources\historiaMedica.ico" />
+    <None Include="Resources\35160812-diseno-de-iconos-medica.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
