@@ -6,12 +6,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6DEEDC83-0BEA-4A3A-AD88-C779FF6CFD17}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>AdministradorTurnos.My.MyApplication</StartupObject>
-    <RootNamespace>AdministradorTurnos</RootNamespace>
-    <AssemblyName>AdministradorTurnos</AssemblyName>
+    <StartupObject>SistemaMedico.My.MyApplication</StartupObject>
+    <RootNamespace>SistemaMedico</RootNamespace>
+    <AssemblyName>Sistema Médico</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publicar\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -22,10 +23,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>es-AR</TargetCulture>
+    <ProductName>Sistema Médico</ProductName>
+    <PublisherName>CENI</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -35,7 +39,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>AdministradorTurnos.xml</DocumentationFile>
+    <DocumentationFile>Sistema Médico.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -45,7 +49,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>AdministradorTurnos.xml</DocumentationFile>
+    <DocumentationFile>Sistema Médico.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -88,6 +92,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ObraSocialDTO.vb" />
     <Compile Include="DTO\PacienteDTO.vb" />
     <Compile Include="DTO\UsuarioDTO.vb" />
     <Compile Include="Logica\Consultorio.vb" />
@@ -107,6 +112,12 @@
     <Compile Include="Persistencia\DAOExcepcion.vb" />
     <Compile Include="Persistencia\EncriptadorCesar.vb" />
     <Compile Include="Persistencia\SQLServerFactory.vb" />
+    <Compile Include="UI\FormAcercaDe.Designer.vb">
+      <DependentUpon>FormAcercaDe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormAcercaDe.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\FormAdministracionTurnos.Designer.vb">
       <DependentUpon>FormAdministracionTurnos.vb</DependentUpon>
     </Compile>
@@ -147,6 +158,12 @@
       <DependentUpon>FormLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="UI\FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormObrasSociales.Designer.vb">
+      <DependentUpon>FormObrasSociales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormObrasSociales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FormPacientes.Designer.vb">
@@ -191,6 +208,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\FormAcercaDe.resx">
+      <DependentUpon>FormAcercaDe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormAdministracionTurnos.resx">
       <DependentUpon>FormAdministracionTurnos.vb</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormLogin.resx">
       <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormObrasSociales.resx">
+      <DependentUpon>FormObrasSociales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormPacientes.resx">
       <DependentUpon>FormPacientes.vb</DependentUpon>
@@ -277,6 +300,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_doctor.ico" />
+    <None Include="Resources\ceni.jpg" />
+    <None Include="Resources\Help.ico" />
+    <None Include="Resources\Report.ico" />
+    <None Include="Resources\contents.ico" />
+    <None Include="Resources\Administrar.ico" />
     <None Include="Resources\exit.ico" />
     <None Include="Resources\medico.jpg" />
     <None Include="Resources\Age-Child-Male-Dark-icon.ico" />

@@ -22,6 +22,7 @@ Partial Class FormHistoriaPaciente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormHistoriaPaciente))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -43,6 +44,7 @@ Partial Class FormHistoriaPaciente
         Me.evaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.motivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbFichaMedica = New System.Windows.Forms.GroupBox()
+        Me.bGuardarCambios = New System.Windows.Forms.Button()
         Me.tbEstCompl = New System.Windows.Forms.RichTextBox()
         Me.tbObservacion = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -51,6 +53,7 @@ Partial Class FormHistoriaPaciente
         Me.tbIdTurno = New System.Windows.Forms.TextBox()
         Me.tbFechaConsulta = New System.Windows.Forms.TextBox()
         Me.bNuevaFicha = New System.Windows.Forms.Button()
+        Me.tbIdFichaMedica = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgFichasMedicas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -244,6 +247,7 @@ Partial Class FormHistoriaPaciente
         '
         'gbFichaMedica
         '
+        Me.gbFichaMedica.Controls.Add(Me.bGuardarCambios)
         Me.gbFichaMedica.Controls.Add(Me.tbEstCompl)
         Me.gbFichaMedica.Controls.Add(Me.tbObservacion)
         Me.gbFichaMedica.Controls.Add(Me.Label7)
@@ -255,11 +259,20 @@ Partial Class FormHistoriaPaciente
         Me.gbFichaMedica.TabStop = False
         Me.gbFichaMedica.Text = "Ficha"
         '
+        'bGuardarCambios
+        '
+        Me.bGuardarCambios.Enabled = False
+        Me.bGuardarCambios.Image = Global.SistemaMedico.My.Resources.Resources.filesave
+        Me.bGuardarCambios.Location = New System.Drawing.Point(468, 12)
+        Me.bGuardarCambios.Name = "bGuardarCambios"
+        Me.bGuardarCambios.Size = New System.Drawing.Size(31, 23)
+        Me.bGuardarCambios.TabIndex = 4
+        Me.bGuardarCambios.UseVisualStyleBackColor = True
+        '
         'tbEstCompl
         '
         Me.tbEstCompl.Location = New System.Drawing.Point(263, 41)
         Me.tbEstCompl.Name = "tbEstCompl"
-        Me.tbEstCompl.ReadOnly = True
         Me.tbEstCompl.Size = New System.Drawing.Size(236, 112)
         Me.tbEstCompl.TabIndex = 3
         Me.tbEstCompl.Text = ""
@@ -268,7 +281,6 @@ Partial Class FormHistoriaPaciente
         '
         Me.tbObservacion.Location = New System.Drawing.Point(9, 41)
         Me.tbObservacion.Name = "tbObservacion"
-        Me.tbObservacion.ReadOnly = True
         Me.tbObservacion.Size = New System.Drawing.Size(236, 112)
         Me.tbObservacion.TabIndex = 2
         Me.tbObservacion.Text = ""
@@ -320,7 +332,7 @@ Partial Class FormHistoriaPaciente
         '
         'bNuevaFicha
         '
-        Me.bNuevaFicha.Image = Global.AdministradorTurnos.My.Resources.Resources.historiaMedica1
+        Me.bNuevaFicha.Image = Global.SistemaMedico.My.Resources.Resources.historiaMedica1
         Me.bNuevaFicha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bNuevaFicha.Location = New System.Drawing.Point(386, 154)
         Me.bNuevaFicha.Name = "bNuevaFicha"
@@ -330,11 +342,20 @@ Partial Class FormHistoriaPaciente
         Me.bNuevaFicha.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.bNuevaFicha.UseVisualStyleBackColor = True
         '
+        'tbIdFichaMedica
+        '
+        Me.tbIdFichaMedica.Location = New System.Drawing.Point(418, 290)
+        Me.tbIdFichaMedica.Name = "tbIdFichaMedica"
+        Me.tbIdFichaMedica.Size = New System.Drawing.Size(100, 20)
+        Me.tbIdFichaMedica.TabIndex = 18
+        Me.tbIdFichaMedica.Visible = False
+        '
         'FormHistoriaPaciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.ClientSize = New System.Drawing.Size(544, 511)
+        Me.ClientSize = New System.Drawing.Size(547, 509)
+        Me.Controls.Add(Me.tbIdFichaMedica)
         Me.Controls.Add(Me.tbFechaConsulta)
         Me.Controls.Add(Me.tbIdTurno)
         Me.Controls.Add(Me.tbMotivo)
@@ -343,6 +364,7 @@ Partial Class FormHistoriaPaciente
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "FormHistoriaPaciente"
         Me.ShowInTaskbar = False
@@ -387,4 +409,6 @@ Partial Class FormHistoriaPaciente
     Friend WithEvents estudiosCompl As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents evaluacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents motivo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents bGuardarCambios As System.Windows.Forms.Button
+    Friend WithEvents tbIdFichaMedica As System.Windows.Forms.TextBox
 End Class

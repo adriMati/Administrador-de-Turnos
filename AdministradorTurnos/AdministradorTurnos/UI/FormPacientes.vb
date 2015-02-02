@@ -19,7 +19,7 @@
     Private Sub CargarClientes()
         dgPacientes.DataSource = New SQLServerFactory().ListaPacientes()
     End Sub
-    Private Sub CargarObraSocial()
+    Public Sub CargarObraSocial()
         cbObraSocial.DataSource = New SQLServerFactory().ListaObrasSociales()
         cbObraSocial.ValueMember = "idOSocial"
         cbObraSocial.DisplayMember = "nombreOSocial"
@@ -36,6 +36,10 @@
 
     Private Sub bAlta_Click(sender As Object, e As EventArgs) Handles bAlta.Click
         Try
+            If tbNombre.Text = "" Then
+                MessageBox.Show("Debe ingresar un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
             Dim sexo As String = "Femenino"
             If rbMasculino.Checked Then
                 sexo = "Masculino"
@@ -95,7 +99,7 @@
         End If
     End Sub
 
-    Private Sub dgPacientes_Click(sender As Object, e As EventArgs) Handles dgPacientes.Click
+    Private Sub dgPacientes_Click(sender As Object, e As EventArgs) Handles dgPacientes.Click, dgPacientes.KeyDown, dgPacientes.KeyUp
         If dgPacientes.RowCount > 0 Then
             tbIdPaciente.Text = dgPacientes.Item("idPaciente", dgPacientes.SelectedRows(0).Index).Value()
             tbNombre.Text = dgPacientes.Item("nombre", dgPacientes.SelectedRows(0).Index).Value()
@@ -136,9 +140,6 @@
         FormHistoriaPaciente.ShowDialog()
     End Sub
 
-    Private Sub ToolTip1_Popup(sender As Object, e As PopupEventArgs)
-
-    End Sub
 
     Private Sub tbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
         Try
@@ -146,5 +147,9 @@
         Catch ex As DAOExcepcion
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub bObrasSociales_Click(sender As Object, e As EventArgs) Handles bObrasSociales.Click
+        FormObrasSociales.ShowDialog()
     End Sub
 End Class

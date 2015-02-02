@@ -42,7 +42,7 @@ Partial Class FormAdministracionTurnos
         '
         'bAnular
         '
-        Me.bAnular.Image = Global.AdministradorTurnos.My.Resources.Resources.button_cancel
+        Me.bAnular.Image = Global.SistemaMedico.My.Resources.Resources.button_cancel
         Me.bAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bAnular.Location = New System.Drawing.Point(158, 232)
         Me.bAnular.Name = "bAnular"
@@ -128,7 +128,7 @@ Partial Class FormAdministracionTurnos
         '
         'ConfiguraciónToolStripMenuItem
         '
-        Me.ConfiguraciónToolStripMenuItem.Image = Global.AdministradorTurnos.My.Resources.Resources.configuracion
+        Me.ConfiguraciónToolStripMenuItem.Image = Global.SistemaMedico.My.Resources.Resources.configuracion
         Me.ConfiguraciónToolStripMenuItem.Name = "ConfiguraciónToolStripMenuItem"
         Me.ConfiguraciónToolStripMenuItem.Size = New System.Drawing.Size(111, 20)
         Me.ConfiguraciónToolStripMenuItem.Text = "&Configuración"
@@ -144,6 +144,7 @@ Partial Class FormAdministracionTurnos
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "FormAdministracionTurnos"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

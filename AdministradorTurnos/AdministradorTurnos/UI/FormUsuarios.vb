@@ -6,6 +6,10 @@
 
     Private Sub bGuardar_Click(sender As Object, e As EventArgs) Handles bGuardar.Click
         Try
+            If tbUsuario.Text = "" Or tbContraseña.Text = "" Then
+                MessageBox.Show("Faltan completar datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
             Dim usuario As UsuarioDTO
             If rbAdministrador.Checked Then
                 usuario = New UsuarioDTO(0, tbUsuario.Text, tbContraseña.Text, True, False)
@@ -34,12 +38,18 @@
 
 
     Private Sub FormUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.ToolTip.SetToolTip(rbAdministrador, "Posee acceso a todo los servicios")
+        Me.ToolTip.SetToolTip(rbSecretaria, "Posee acceso a administrar turnos, pacientes y obras sociales")
         CargarUsuarios()
     End Sub
 
     Private Sub CargarUsuarios()
-        Dim sql As New SQLServerFactory()
-        dgUsuarios.DataSource = sql.ListaUsuarios()
+        Try
+            Dim sql As New SQLServerFactory()
+            dgUsuarios.DataSource = sql.ListaUsuarios()
+        Catch ex As DAOExcepcion
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub bModificar_Click(sender As Object, e As EventArgs) Handles bModificar.Click
@@ -62,6 +72,10 @@
 
     Private Sub bEliminar_Click(sender As Object, e As EventArgs) Handles bEliminar.Click
         Try
+            If tbIdUsuario.Text = "" Then
+                MessageBox.Show("Seleccione un Usuario para eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
             Dim sql As SQLServerFactory = New SQLServerFactory()
             sql.EliminarUsuario(Convert.ToInt32(tbIdUsuario.Text))
             CargarUsuarios()

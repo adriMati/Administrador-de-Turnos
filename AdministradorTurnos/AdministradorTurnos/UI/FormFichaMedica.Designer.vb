@@ -90,6 +90,7 @@ Partial Class FormFichaMedica
         Me.tbNombre.ReadOnly = True
         Me.tbNombre.Size = New System.Drawing.Size(224, 20)
         Me.tbNombre.TabIndex = 7
+        Me.tbNombre.TabStop = False
         '
         'tbIdPaciente
         '
@@ -97,6 +98,7 @@ Partial Class FormFichaMedica
         Me.tbIdPaciente.Name = "tbIdPaciente"
         Me.tbIdPaciente.Size = New System.Drawing.Size(37, 20)
         Me.tbIdPaciente.TabIndex = 8
+        Me.tbIdPaciente.TabStop = False
         Me.tbIdPaciente.Visible = False
         '
         'tbFechaConsulta
@@ -104,21 +106,21 @@ Partial Class FormFichaMedica
         Me.tbFechaConsulta.Location = New System.Drawing.Point(37, 64)
         Me.tbFechaConsulta.Name = "tbFechaConsulta"
         Me.tbFechaConsulta.Size = New System.Drawing.Size(224, 20)
-        Me.tbFechaConsulta.TabIndex = 9
+        Me.tbFechaConsulta.TabIndex = 1
         '
         'tbMotivo
         '
         Me.tbMotivo.Location = New System.Drawing.Point(37, 103)
         Me.tbMotivo.Name = "tbMotivo"
         Me.tbMotivo.Size = New System.Drawing.Size(224, 20)
-        Me.tbMotivo.TabIndex = 10
+        Me.tbMotivo.TabIndex = 2
         '
         'tbEvaluacion
         '
         Me.tbEvaluacion.Location = New System.Drawing.Point(37, 151)
         Me.tbEvaluacion.Name = "tbEvaluacion"
         Me.tbEvaluacion.Size = New System.Drawing.Size(224, 78)
-        Me.tbEvaluacion.TabIndex = 11
+        Me.tbEvaluacion.TabIndex = 3
         Me.tbEvaluacion.Text = ""
         '
         'tbEstCompl
@@ -126,29 +128,29 @@ Partial Class FormFichaMedica
         Me.tbEstCompl.Location = New System.Drawing.Point(287, 151)
         Me.tbEstCompl.Name = "tbEstCompl"
         Me.tbEstCompl.Size = New System.Drawing.Size(224, 78)
-        Me.tbEstCompl.TabIndex = 12
+        Me.tbEstCompl.TabIndex = 4
         Me.tbEstCompl.Text = ""
         '
         'bCancelar
         '
-        Me.bCancelar.Image = Global.AdministradorTurnos.My.Resources.Resources.button_cancel
+        Me.bCancelar.Image = Global.SistemaMedico.My.Resources.Resources.button_cancel
         Me.bCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bCancelar.Location = New System.Drawing.Point(245, 262)
         Me.bCancelar.Name = "bCancelar"
         Me.bCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.bCancelar.TabIndex = 14
+        Me.bCancelar.TabIndex = 6
         Me.bCancelar.Text = "&Cancelar"
         Me.bCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.bCancelar.UseVisualStyleBackColor = True
         '
         'bGuardar
         '
-        Me.bGuardar.Image = Global.AdministradorTurnos.My.Resources.Resources.filesave
+        Me.bGuardar.Image = Global.SistemaMedico.My.Resources.Resources.filesave
         Me.bGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bGuardar.Location = New System.Drawing.Point(120, 262)
         Me.bGuardar.Name = "bGuardar"
         Me.bGuardar.Size = New System.Drawing.Size(75, 23)
-        Me.bGuardar.TabIndex = 13
+        Me.bGuardar.TabIndex = 5
         Me.bGuardar.Text = "&Guardar"
         Me.bGuardar.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.bGuardar.UseVisualStyleBackColor = True

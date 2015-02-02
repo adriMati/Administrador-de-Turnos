@@ -93,7 +93,7 @@ Partial Class FormLogin
         '
         'LogoPictureBox
         '
-        Me.LogoPictureBox.Image = Global.AdministradorTurnos.My.Resources.Resources.Age_Child_Male_Dark_icon
+        Me.LogoPictureBox.Image = Global.SistemaMedico.My.Resources.Resources.Age_Child_Male_Dark_icon
         Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
         Me.LogoPictureBox.Name = "LogoPictureBox"
         Me.LogoPictureBox.Size = New System.Drawing.Size(165, 193)

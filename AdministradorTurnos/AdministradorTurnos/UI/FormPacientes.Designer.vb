@@ -62,15 +62,16 @@ Partial Class FormPacientes
         Me.sexo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tbIdPaciente = New System.Windows.Forms.TextBox()
         Me.tbDni = New System.Windows.Forms.MaskedTextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.bObrasSociales = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.tbBusqueda = New System.Windows.Forms.TextBox()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.bHistoria = New System.Windows.Forms.Button()
         Me.bSalir = New System.Windows.Forms.Button()
         Me.bModificar = New System.Windows.Forms.Button()
         Me.bEliminar = New System.Windows.Forms.Button()
         Me.bAlta = New System.Windows.Forms.Button()
-        Me.bHistoria = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.tbBusqueda = New System.Windows.Forms.TextBox()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.dgPacientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -281,6 +282,7 @@ Partial Class FormPacientes
         Me.dgPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgPacientes.Size = New System.Drawing.Size(653, 220)
         Me.dgPacientes.TabIndex = 26
+        Me.dgPacientes.TabStop = False
         '
         'idPaciente
         '
@@ -389,8 +391,9 @@ Partial Class FormPacientes
         '
         Me.tbIdPaciente.Location = New System.Drawing.Point(525, 40)
         Me.tbIdPaciente.Name = "tbIdPaciente"
-        Me.tbIdPaciente.Size = New System.Drawing.Size(63, 20)
+        Me.tbIdPaciente.Size = New System.Drawing.Size(35, 20)
         Me.tbIdPaciente.TabIndex = 29
+        Me.tbIdPaciente.TabStop = False
         Me.tbIdPaciente.Visible = False
         '
         'tbDni
@@ -401,72 +404,9 @@ Partial Class FormPacientes
         Me.tbDni.Size = New System.Drawing.Size(310, 20)
         Me.tbDni.TabIndex = 2
         '
-        'bSalir
-        '
-        Me.bSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bSalir.Image = Global.AdministradorTurnos.My.Resources.Resources.Salir
-        Me.bSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bSalir.Location = New System.Drawing.Point(524, 508)
-        Me.bSalir.Name = "bSalir"
-        Me.bSalir.Size = New System.Drawing.Size(85, 35)
-        Me.bSalir.TabIndex = 16
-        Me.bSalir.Text = "&Salir"
-        Me.bSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bSalir.UseVisualStyleBackColor = True
-        '
-        'bModificar
-        '
-        Me.bModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bModificar.Image = Global.AdministradorTurnos.My.Resources.Resources.edit
-        Me.bModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bModificar.Location = New System.Drawing.Point(283, 508)
-        Me.bModificar.Name = "bModificar"
-        Me.bModificar.Size = New System.Drawing.Size(85, 35)
-        Me.bModificar.TabIndex = 15
-        Me.bModificar.Text = "&Modificar"
-        Me.bModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bModificar.UseVisualStyleBackColor = True
-        '
-        'bEliminar
-        '
-        Me.bEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bEliminar.Image = Global.AdministradorTurnos.My.Resources.Resources.button_cancel
-        Me.bEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bEliminar.Location = New System.Drawing.Point(167, 508)
-        Me.bEliminar.Name = "bEliminar"
-        Me.bEliminar.Size = New System.Drawing.Size(85, 35)
-        Me.bEliminar.TabIndex = 14
-        Me.bEliminar.Text = "&Eliminar"
-        Me.bEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bEliminar.UseVisualStyleBackColor = True
-        '
-        'bAlta
-        '
-        Me.bAlta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bAlta.Image = Global.AdministradorTurnos.My.Resources.Resources.apply
-        Me.bAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bAlta.Location = New System.Drawing.Point(51, 508)
-        Me.bAlta.Name = "bAlta"
-        Me.bAlta.Size = New System.Drawing.Size(85, 35)
-        Me.bAlta.TabIndex = 13
-        Me.bAlta.Text = "&Añadir"
-        Me.bAlta.UseVisualStyleBackColor = True
-        '
-        'bHistoria
-        '
-        Me.bHistoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bHistoria.Image = Global.AdministradorTurnos.My.Resources.Resources.historiaMedica1
-        Me.bHistoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bHistoria.Location = New System.Drawing.Point(399, 508)
-        Me.bHistoria.Name = "bHistoria"
-        Me.bHistoria.Size = New System.Drawing.Size(94, 35)
-        Me.bHistoria.TabIndex = 31
-        Me.bHistoria.Text = "&Historia"
-        Me.bHistoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bHistoria.UseVisualStyleBackColor = True
-        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.bObrasSociales)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.tbDni)
@@ -498,6 +438,16 @@ Partial Class FormPacientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos Paciente"
         '
+        'bObrasSociales
+        '
+        Me.bObrasSociales.Location = New System.Drawing.Point(495, 117)
+        Me.bObrasSociales.Name = "bObrasSociales"
+        Me.bObrasSociales.Size = New System.Drawing.Size(25, 23)
+        Me.bObrasSociales.TabIndex = 30
+        Me.bObrasSociales.TabStop = False
+        Me.bObrasSociales.Text = "..."
+        Me.bObrasSociales.UseVisualStyleBackColor = True
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -512,13 +462,77 @@ Partial Class FormPacientes
         Me.tbBusqueda.Location = New System.Drawing.Point(75, 240)
         Me.tbBusqueda.Name = "tbBusqueda"
         Me.tbBusqueda.Size = New System.Drawing.Size(219, 20)
-        Me.tbBusqueda.TabIndex = 34
+        Me.tbBusqueda.TabIndex = 13
         '
         'ToolTip
         '
         Me.ToolTip.AutoPopDelay = 5000
         Me.ToolTip.InitialDelay = 100
         Me.ToolTip.ReshowDelay = 50
+        '
+        'bHistoria
+        '
+        Me.bHistoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bHistoria.Image = Global.SistemaMedico.My.Resources.Resources.historiaMedica1
+        Me.bHistoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bHistoria.Location = New System.Drawing.Point(399, 508)
+        Me.bHistoria.Name = "bHistoria"
+        Me.bHistoria.Size = New System.Drawing.Size(94, 35)
+        Me.bHistoria.TabIndex = 17
+        Me.bHistoria.Text = "&Historia"
+        Me.bHistoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bHistoria.UseVisualStyleBackColor = True
+        '
+        'bSalir
+        '
+        Me.bSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bSalir.Image = Global.SistemaMedico.My.Resources.Resources.Salir
+        Me.bSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bSalir.Location = New System.Drawing.Point(524, 508)
+        Me.bSalir.Name = "bSalir"
+        Me.bSalir.Size = New System.Drawing.Size(85, 35)
+        Me.bSalir.TabIndex = 18
+        Me.bSalir.Text = "&Salir"
+        Me.bSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bSalir.UseVisualStyleBackColor = True
+        '
+        'bModificar
+        '
+        Me.bModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bModificar.Image = Global.SistemaMedico.My.Resources.Resources.edit
+        Me.bModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bModificar.Location = New System.Drawing.Point(283, 508)
+        Me.bModificar.Name = "bModificar"
+        Me.bModificar.Size = New System.Drawing.Size(85, 35)
+        Me.bModificar.TabIndex = 16
+        Me.bModificar.Text = "&Modificar"
+        Me.bModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bModificar.UseVisualStyleBackColor = True
+        '
+        'bEliminar
+        '
+        Me.bEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bEliminar.Image = Global.SistemaMedico.My.Resources.Resources.button_cancel
+        Me.bEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bEliminar.Location = New System.Drawing.Point(167, 508)
+        Me.bEliminar.Name = "bEliminar"
+        Me.bEliminar.Size = New System.Drawing.Size(85, 35)
+        Me.bEliminar.TabIndex = 15
+        Me.bEliminar.Text = "&Eliminar"
+        Me.bEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bEliminar.UseVisualStyleBackColor = True
+        '
+        'bAlta
+        '
+        Me.bAlta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bAlta.Image = Global.SistemaMedico.My.Resources.Resources.apply
+        Me.bAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bAlta.Location = New System.Drawing.Point(51, 508)
+        Me.bAlta.Name = "bAlta"
+        Me.bAlta.Size = New System.Drawing.Size(85, 35)
+        Me.bAlta.TabIndex = 14
+        Me.bAlta.Text = "&Añadir"
+        Me.bAlta.UseVisualStyleBackColor = True
         '
         'FormPacientes
         '
@@ -595,4 +609,5 @@ Partial Class FormPacientes
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents tbBusqueda As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
+    Friend WithEvents bObrasSociales As System.Windows.Forms.Button
 End Class

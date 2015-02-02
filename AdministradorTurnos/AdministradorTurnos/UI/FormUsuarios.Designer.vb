@@ -22,6 +22,7 @@ Partial Class FormUsuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUsuarios))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -33,16 +34,17 @@ Partial Class FormUsuarios
         Me.gbUsuario = New System.Windows.Forms.GroupBox()
         Me.tbIdUsuario = New System.Windows.Forms.TextBox()
         Me.dgUsuarios = New System.Windows.Forms.DataGridView()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.bEliminar = New System.Windows.Forms.Button()
-        Me.bModificar = New System.Windows.Forms.Button()
-        Me.bCancelar = New System.Windows.Forms.Button()
-        Me.bGuardar = New System.Windows.Forms.Button()
         Me.usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.permisoAdministrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.permisoSecretaria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.contraseña = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idUsuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.bEliminar = New System.Windows.Forms.Button()
+        Me.bModificar = New System.Windows.Forms.Button()
+        Me.bCancelar = New System.Windows.Forms.Button()
+        Me.bGuardar = New System.Windows.Forms.Button()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.gbPermisos.SuspendLayout()
         Me.gbUsuario.SuspendLayout()
         CType(Me.dgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,7 +74,7 @@ Partial Class FormUsuarios
         Me.tbUsuario.Location = New System.Drawing.Point(73, 21)
         Me.tbUsuario.Name = "tbUsuario"
         Me.tbUsuario.Size = New System.Drawing.Size(139, 20)
-        Me.tbUsuario.TabIndex = 2
+        Me.tbUsuario.TabIndex = 1
         '
         'tbContraseña
         '
@@ -80,7 +82,7 @@ Partial Class FormUsuarios
         Me.tbContraseña.Name = "tbContraseña"
         Me.tbContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tbContraseña.Size = New System.Drawing.Size(139, 20)
-        Me.tbContraseña.TabIndex = 3
+        Me.tbContraseña.TabIndex = 2
         '
         'gbPermisos
         '
@@ -99,18 +101,18 @@ Partial Class FormUsuarios
         Me.rbSecretaria.Location = New System.Drawing.Point(10, 42)
         Me.rbSecretaria.Name = "rbSecretaria"
         Me.rbSecretaria.Size = New System.Drawing.Size(73, 17)
-        Me.rbSecretaria.TabIndex = 15
-        Me.rbSecretaria.TabStop = True
+        Me.rbSecretaria.TabIndex = 4
         Me.rbSecretaria.Text = "Secretaria"
         Me.rbSecretaria.UseVisualStyleBackColor = True
         '
         'rbAdministrador
         '
         Me.rbAdministrador.AutoSize = True
+        Me.rbAdministrador.Checked = True
         Me.rbAdministrador.Location = New System.Drawing.Point(10, 19)
         Me.rbAdministrador.Name = "rbAdministrador"
         Me.rbAdministrador.Size = New System.Drawing.Size(88, 17)
-        Me.rbAdministrador.TabIndex = 14
+        Me.rbAdministrador.TabIndex = 3
         Me.rbAdministrador.TabStop = True
         Me.rbAdministrador.Text = "Administrador"
         Me.rbAdministrador.UseVisualStyleBackColor = True
@@ -136,6 +138,7 @@ Partial Class FormUsuarios
         Me.tbIdUsuario.Name = "tbIdUsuario"
         Me.tbIdUsuario.Size = New System.Drawing.Size(40, 20)
         Me.tbIdUsuario.TabIndex = 16
+        Me.tbIdUsuario.TabStop = False
         Me.tbIdUsuario.Visible = False
         '
         'dgUsuarios
@@ -150,64 +153,7 @@ Partial Class FormUsuarios
         Me.dgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgUsuarios.Size = New System.Drawing.Size(287, 129)
         Me.dgUsuarios.TabIndex = 12
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.dgUsuarios)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(317, 163)
-        Me.GroupBox1.TabIndex = 13
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Usuarios"
-        '
-        'bEliminar
-        '
-        Me.bEliminar.Image = Global.AdministradorTurnos.My.Resources.Resources.button_cancel
-        Me.bEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bEliminar.Location = New System.Drawing.Point(243, 295)
-        Me.bEliminar.Name = "bEliminar"
-        Me.bEliminar.Size = New System.Drawing.Size(75, 40)
-        Me.bEliminar.TabIndex = 15
-        Me.bEliminar.Text = "&Eliminar"
-        Me.bEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bEliminar.UseVisualStyleBackColor = True
-        '
-        'bModificar
-        '
-        Me.bModificar.Image = Global.AdministradorTurnos.My.Resources.Resources.edit
-        Me.bModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bModificar.Location = New System.Drawing.Point(243, 240)
-        Me.bModificar.Name = "bModificar"
-        Me.bModificar.Size = New System.Drawing.Size(75, 37)
-        Me.bModificar.TabIndex = 14
-        Me.bModificar.Text = "&Modificar"
-        Me.bModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bModificar.UseVisualStyleBackColor = True
-        '
-        'bCancelar
-        '
-        Me.bCancelar.Image = Global.AdministradorTurnos.My.Resources.Resources._exit
-        Me.bCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bCancelar.Location = New System.Drawing.Point(243, 353)
-        Me.bCancelar.Name = "bCancelar"
-        Me.bCancelar.Size = New System.Drawing.Size(75, 34)
-        Me.bCancelar.TabIndex = 9
-        Me.bCancelar.Text = "&Cancelar"
-        Me.bCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bCancelar.UseVisualStyleBackColor = True
-        '
-        'bGuardar
-        '
-        Me.bGuardar.Image = Global.AdministradorTurnos.My.Resources.Resources.filesave
-        Me.bGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bGuardar.Location = New System.Drawing.Point(243, 188)
-        Me.bGuardar.Name = "bGuardar"
-        Me.bGuardar.Size = New System.Drawing.Size(75, 34)
-        Me.bGuardar.TabIndex = 8
-        Me.bGuardar.Text = "&Guardar"
-        Me.bGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.bGuardar.UseVisualStyleBackColor = True
+        Me.dgUsuarios.TabStop = False
         '
         'usuario
         '
@@ -247,6 +193,64 @@ Partial Class FormUsuarios
         Me.idUsuario.Name = "idUsuario"
         Me.idUsuario.ReadOnly = True
         Me.idUsuario.Visible = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.dgUsuarios)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(317, 163)
+        Me.GroupBox1.TabIndex = 13
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Usuarios"
+        '
+        'bEliminar
+        '
+        Me.bEliminar.Image = Global.SistemaMedico.My.Resources.Resources.button_cancel
+        Me.bEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bEliminar.Location = New System.Drawing.Point(243, 295)
+        Me.bEliminar.Name = "bEliminar"
+        Me.bEliminar.Size = New System.Drawing.Size(75, 40)
+        Me.bEliminar.TabIndex = 7
+        Me.bEliminar.Text = "&Eliminar"
+        Me.bEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bEliminar.UseVisualStyleBackColor = True
+        '
+        'bModificar
+        '
+        Me.bModificar.Image = Global.SistemaMedico.My.Resources.Resources.edit
+        Me.bModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bModificar.Location = New System.Drawing.Point(243, 240)
+        Me.bModificar.Name = "bModificar"
+        Me.bModificar.Size = New System.Drawing.Size(75, 37)
+        Me.bModificar.TabIndex = 6
+        Me.bModificar.Text = "&Modificar"
+        Me.bModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bModificar.UseVisualStyleBackColor = True
+        '
+        'bCancelar
+        '
+        Me.bCancelar.Image = Global.SistemaMedico.My.Resources.Resources._exit
+        Me.bCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bCancelar.Location = New System.Drawing.Point(243, 353)
+        Me.bCancelar.Name = "bCancelar"
+        Me.bCancelar.Size = New System.Drawing.Size(75, 34)
+        Me.bCancelar.TabIndex = 8
+        Me.bCancelar.Text = "&Cancelar"
+        Me.bCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bCancelar.UseVisualStyleBackColor = True
+        '
+        'bGuardar
+        '
+        Me.bGuardar.Image = Global.SistemaMedico.My.Resources.Resources.filesave
+        Me.bGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bGuardar.Location = New System.Drawing.Point(243, 188)
+        Me.bGuardar.Name = "bGuardar"
+        Me.bGuardar.Size = New System.Drawing.Size(75, 34)
+        Me.bGuardar.TabIndex = 5
+        Me.bGuardar.Text = "&Guardar"
+        Me.bGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bGuardar.UseVisualStyleBackColor = True
         '
         'FormUsuarios
         '
@@ -295,4 +299,5 @@ Partial Class FormUsuarios
     Friend WithEvents permisoSecretaria As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents contraseña As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents idUsuario As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
 End Class

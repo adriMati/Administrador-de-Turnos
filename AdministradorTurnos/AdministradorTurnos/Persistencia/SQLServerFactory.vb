@@ -61,11 +61,39 @@ Public Class SQLServerFactory
         End Try
     End Sub
 
+    Public Sub NuevaObraSocial(pObraSocial As ObraSocialDTO)
+        Try
+            IniciarConexion()
+            ComenzarTransaccion()
+            Dim insertar As New SqlCommand("insert into ObrasSociales values ('" & pObraSocial.Codigo & "','" & pObraSocial.Nombre & "','" & pObraSocial.Estado & "')", iConexion, iTransaccion)
+            insertar.ExecuteNonQuery()
+            Commit()
+            FinalizarConexion()
+        Catch ex As SqlException
+            RollBack()
+            Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
+        End Try
+    End Sub
+
     Public Sub EliminarTurno(pIdTurno As Integer)
         Try
             IniciarConexion()
             ComenzarTransaccion()
             Dim insertar As New SqlCommand("delete Turnos where idTurno = '" & pIdTurno & "'", iConexion, iTransaccion)
+            insertar.ExecuteNonQuery()
+            Commit()
+            FinalizarConexion()
+        Catch ex As SqlException
+            RollBack()
+            Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
+        End Try
+    End Sub
+
+    Public Sub EliminarObraSocial(pIdOSocial As Integer)
+        Try
+            IniciarConexion()
+            ComenzarTransaccion()
+            Dim insertar As New SqlCommand("delete ObrasSociales where idOSocial = '" & pIdOSocial & "'", iConexion, iTransaccion)
             insertar.ExecuteNonQuery()
             Commit()
             FinalizarConexion()
@@ -117,6 +145,20 @@ Public Class SQLServerFactory
         End Try
     End Sub
 
+    Public Sub ModificarObraSocial(pObraSocial As ObraSocialDTO)
+        Try
+            IniciarConexion()
+            ComenzarTransaccion()
+            Dim insertar As New SqlCommand("update ObrasSociales set codigoOSocial ='" & pObraSocial.Codigo & "', nombreOSocial = '" & pObraSocial.Nombre & "', estado = '" & pObraSocial.Estado & "' where idOSocial = '" & pObraSocial.IdOSocial & "'", iConexion, iTransaccion)
+            insertar.ExecuteNonQuery()
+            Commit()
+            FinalizarConexion()
+        Catch ex As SqlException
+            RollBack()
+            Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
+        End Try
+    End Sub
+
     Public Sub ModificarUsuario(pUsuario As UsuarioDTO)
         Try
             If ValidarUsuario(pUsuario) Then
@@ -130,6 +172,20 @@ Public Class SQLServerFactory
             Else
                 Throw New DAOExcepcion("Ya existe un usuario con dicho nombre, ingrese otro")
             End If            
+        Catch ex As SqlException
+            RollBack()
+            Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
+        End Try
+    End Sub
+
+    Public Sub ModificarFichaMedica(pFichaMedica As FichaMedica)
+        Try
+                IniciarConexion()
+                ComenzarTransaccion()
+            Dim insertar As New SqlCommand("update FichasMedicas set evaluacion= '" & pFichaMedica.Evaluacion & "',estudiosComplementarios = '" & pFichaMedica.EstudiosComplementarios & "' where idFichaMedica = '" & pFichaMedica.IdFichaMedica & "'", iConexion, iTransaccion)
+                insertar.ExecuteNonQuery()
+                Commit()
+                FinalizarConexion()
         Catch ex As SqlException
             RollBack()
             Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
@@ -167,7 +223,7 @@ Public Class SQLServerFactory
     Public Function ListaLocalidades(idProvincia As Integer) As DataTable
         Try
             IniciarConexion()
-            Dim consulta As New SqlCommand("select idLocalidad,NombreLocalidad from Localidades where idProvincia = '" & idProvincia & "'", iConexion)
+            Dim consulta As New SqlCommand("select idLocalidad,NombreLocalidad from Localidades where idProvincia = '" & idProvincia & "' order by nombreLocalidad", iConexion)
             Dim lista As New DataTable
             Dim adapter As New SqlDataAdapter(consulta)
             adapter.Fill(lista)
@@ -181,7 +237,7 @@ Public Class SQLServerFactory
     Public Function ListaProvincias() As DataTable
         Try
             IniciarConexion()
-            Dim consulta As New SqlCommand("select idProvincia,nombreProvincia from Provincias", iConexion)
+            Dim consulta As New SqlCommand("select idProvincia,nombreProvincia from Provincias order by nombreProvincia", iConexion)
             Dim lista As New DataTable
             Dim adapter As New SqlDataAdapter(consulta)
             adapter.Fill(lista)
@@ -195,7 +251,7 @@ Public Class SQLServerFactory
     Public Function ListaObrasSociales() As DataTable
         Try
             IniciarConexion()
-            Dim consulta As New SqlCommand("select idOSocial, nombreOSocial from ObrasSociales", iConexion)
+            Dim consulta As New SqlCommand("select * from ObrasSociales order by nombreOSocial", iConexion)
             Dim lista As New DataTable
             Dim adapter As New SqlDataAdapter(consulta)
             adapter.Fill(lista)
@@ -238,6 +294,20 @@ Public Class SQLServerFactory
         Try
             IniciarConexion()
             Dim consulta As New SqlCommand("select idPaciente,apellidoNombre,domicilio,p.idLocalidad,telefono,email,fechaNacimiento,idOSocial,nroAfiliado,sexo,dni,idProvincia from Pacientes p, Localidades l where p.idLocalidad = l.idLocalidad  and (apellidoNombre like '" & cadena & "%' or dni like '" & cadena & "%') order by apellidoNombre", iConexion)
+            Dim lista As New DataTable
+            Dim adapter As New SqlDataAdapter(consulta)
+            adapter.Fill(lista)
+            FinalizarConexion()
+            Return lista
+        Catch ex As SqlException
+            Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
+        End Try
+    End Function
+
+    Public Function BuscarPorAproxObrasSociales(cadena As String) As DataTable
+        Try
+            IniciarConexion()
+            Dim consulta As New SqlCommand("select * from ObrasSociales where codigoOSocial like '" & cadena & "%' or nombreOSocial like '" & cadena & "%' order by nombreOSocial", iConexion)
             Dim lista As New DataTable
             Dim adapter As New SqlDataAdapter(consulta)
             adapter.Fill(lista)
@@ -306,6 +376,20 @@ Public Class SQLServerFactory
             FinalizarConexion()
             Dim encriptador As EncriptadorCesar = New EncriptadorCesar(4)
             Return New UsuarioDTO(lista(0)("idUsuario"), lista(0)("nombreUsuario"), encriptador.Desencriptar(lista(0)("contraseña")), lista(0)("permisoAdministrador"), lista(0)("permisoSecretaria"))
+        Catch ex As SqlException
+            Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
+        Catch ex As NullReferenceException
+            Throw New DAOExcepcion("Dicho usuario no está registrado en el sistema")
+        End Try
+    End Function
+
+    Public Function CantidadUsuarios() As Integer
+        Try
+            IniciarConexion()
+            Dim consulta As New SqlCommand("select count(*) from Usuarios ", iConexion)
+            Dim resultado As Integer = consulta.ExecuteScalar()
+            FinalizarConexion()
+            Return resultado
         Catch ex As SqlException
             Throw New DAOExcepcion("Ocurrió un error interno, Consulte con servicio técnico")
         Catch ex As NullReferenceException

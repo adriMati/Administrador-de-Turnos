@@ -101,7 +101,7 @@ Partial Class FormConfiguracion
         '
         'bAceptar
         '
-        Me.bAceptar.Image = Global.AdministradorTurnos.My.Resources.Resources.apply
+        Me.bAceptar.Image = Global.SistemaMedico.My.Resources.Resources.apply
         Me.bAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bAceptar.Location = New System.Drawing.Point(40, 190)
         Me.bAceptar.Name = "bAceptar"
@@ -112,7 +112,7 @@ Partial Class FormConfiguracion
         '
         'bCancelar
         '
-        Me.bCancelar.Image = Global.AdministradorTurnos.My.Resources.Resources.button_cancel
+        Me.bCancelar.Image = Global.SistemaMedico.My.Resources.Resources.button_cancel
         Me.bCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bCancelar.Location = New System.Drawing.Point(148, 190)
         Me.bCancelar.Name = "bCancelar"

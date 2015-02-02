@@ -102,6 +102,11 @@
         Return sql.ListaFichasMedicas(pIdPaciente)
     End Function
 
+    Public Sub ModificarFichaMedica(pFichaMedica As FichaMedica)
+        Dim sql As New SQLServerFactory()
+        sql.ModificarFichaMedica(pFichaMedica)
+    End Sub
+
     Public Function ValidarDatosUsuario(pUsuario As UsuarioDTO) As Boolean
         Dim Sql As New SQLServerFactory()
         Dim usuario As UsuarioDTO = Sql.BuscarUsuario(pUsuario.Usuario)

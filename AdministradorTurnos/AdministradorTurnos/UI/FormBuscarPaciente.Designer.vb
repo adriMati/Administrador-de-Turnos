@@ -153,7 +153,7 @@ Partial Class FormBuscarPaciente
         '
         'bCancelar
         '
-        Me.bCancelar.Image = Global.AdministradorTurnos.My.Resources.Resources.button_cancel
+        Me.bCancelar.Image = Global.SistemaMedico.My.Resources.Resources.button_cancel
         Me.bCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.bCancelar.Location = New System.Drawing.Point(200, 329)
         Me.bCancelar.Name = "bCancelar"
